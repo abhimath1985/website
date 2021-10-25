@@ -44,12 +44,12 @@ if (decodedText !== lastResult) {
 ++countResults;
 lastResult = decodedText;
 // Handle on success condition with the decoded message.
-console.log(`Scan result ${decodedText}`, decodedResult);
+alert(`Scan result ${decodedText}`, decodedResult);
 }
 }
 
 var html5QrcodeScanner = new Html5QrcodeScanner(
-"qr-reader", { fps: 10, qrbox: 250 });
+"qr-reader", { fps: 10, qrbox: 350 });
 html5QrcodeScanner.render(onScanSuccess);
 });
 </script>
