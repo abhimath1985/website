@@ -2,20 +2,24 @@
 <head>
 <title>Html-Qrcode Demo</title>
 <body>
-    <form action="116.206.154.163/rack_mgmt.php" method="post">
+    <form action="http://116.206.154.163/rack_mgmt.php" method="post">
         <div id="qr-reader" style="width:500px"></div>
-        <input type="hidden" name="qrcode" id="qr-reader-results">
+        <input type="text" name="qrcode" id="qr-reader-results">
+        <br>
         <select name="rack_no" style="width:350px; height:35px;">
             <option value="">Select Rack</option>
-            <?php
-            for($ii=1; $ii<=40; $ii++){
-            ?>
-            <option value="<?php echo $ii;?>"><?php echo 'RACK '.$ii;?></option>
-            <?php
-            }        
-            ?>
+            <option value="1">Rack 1</option>
+          <option value="2">Rack 2</option>
+          <option value="3">Rack 3</option>
+          <option value="4">Rack 4</option>
+          <option value="5">Rack 5</option>
+          <option value="6">Rack 6</option>
+          <option value="7">Rack 7</option>
+          <option value="8">Rack 8</option>
+          <option value="9">Rack 9</option>
+          <option value="10">Rack 10</option>
             
-        </select><br>
+        </select><br><br>
         <input type="submit" name="save" style="padding:10px; width:100px; value="Add">
     </form>
 </body>
