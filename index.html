@@ -45,6 +45,7 @@ if (decodedText !== lastResult) {
 lastResult = decodedText;
 // Handle on success condition with the decoded message.
 alert(`Scan result ${decodedText}`, decodedResult);
+ $('#qr-reader-results').val(decodedResult);
 }
 }
 
