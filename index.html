@@ -1,53 +1,53 @@
-
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Aaditiya QR Scanner</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
-    <script src="qrcode.min.js"></script>
-  </head>
-
-  <body>
-    <div style="width: 500px" id="reader"></div>
-<script>	
-	function onScanSuccess(decodedText, decodedResult) {
-    // Handle on success condition with the decoded text or result.
-    console.log(`Scan result: ${decodedText}`, decodedResult);
+ <html>
+<head>
+<title>Html-Qrcode Demo</title>
+<body>
+    <form action="116.206.154.163/rack_mgmt.php" method="post">
+        <div id="qr-reader" style="width:500px"></div>
+        <input type="hidden" name="qrcode" id="qr-reader-results">
+        <select name="rack_no" style="width:350px; height:35px;">
+            <option value="">Select Rack</option>
+            <?php
+            for($ii=1; $ii<=40; $ii++){
+            ?>
+            <option value="<?php echo $ii;?>"><?php echo 'RACK '.$ii;?></option>
+            <?php
+            }        
+            ?>
+            
+        </select><br>
+        <input type="submit" name="save" style="padding:10px; width:100px; value="Add">
+    </form>
+</body>
+<script src="./html5-qrcode.min.js"></script>
+<script>
+function docReady(fn) {
+// see if DOM is already available
+if (document.readyState === "complete"
+|| document.readyState === "interactive") {
+// call on next available tick
+setTimeout(fn, 1);
+} else {
+document.addEventListener("DOMContentLoaded", fn);
+}
 }
 
-var html5QrcodeScanner = new Html5QrcodeScanner(
-	"reader", { fps: 10, qrbox: 250 });
-html5QrcodeScanner.render(onScanSuccess);
-
-var html5QrcodeScanner = new Html5QrcodeScanner(
-    "reader", { fps: 10, qrbox: 250 });
-        
+docReady(function () {
+var resultContainer = document.getElementById('qr-reader-results');
+var lastResult, countResults = 0;
 function onScanSuccess(decodedText, decodedResult) {
-    // Handle on success condition with the decoded text or result.
-    console.log(`Scan result: ${decodedText}`, decodedResult);
-    // ...
-    html5QrcodeScanner.clear();
-    // ^ this will stop the scanner (video feed) and clear the scan area.
+if (decodedText !== lastResult) {
+++countResults;
+lastResult = decodedText;
+// Handle on success condition with the decoded message.
+console.log(`Scan result ${decodedText}`, decodedResult);
 }
-
-html5QrcodeScanner.render(onScanSuccess);
-
-
-
-function onScanSuccess(decodedText, decodedResult) {
-    // Handle on success condition with the decoded text or result.
-    console.log(`Scan result: ${decodedText}`, decodedResult);
-}
-
-function onScanError(errorMessage) {
-    // handle on error condition, with error message
 }
 
 var html5QrcodeScanner = new Html5QrcodeScanner(
-    "reader", { fps: 10, qrbox: 250 });
-html5QrcodeScanner.render(onScanSuccess, onScanError);
-
+"qr-reader", { fps: 10, qrbox: 250 });
+html5QrcodeScanner.render(onScanSuccess);
+});
 </script>
-  </body>
+</head>
 </html>
