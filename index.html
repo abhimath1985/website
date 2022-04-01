@@ -7,6 +7,8 @@
         <input type="text" name="qrcode" id="qr-reader-results">
         <br>
         <br><br>
+        <span id="span1"></span>
+        <span id="span2"></span>
         <input type="submit" name="save" style="padding:10px; width:100px; value="Add">
     </form>
 </body>
@@ -32,8 +34,11 @@ if (decodedText !== lastResult) {
 lastResult = decodedText;
 // Handle on success condition with the decoded message.
 alert(`Scan result ${decodedText}`, decodedResult);
+                                            
  //$('#qr-reader-results').val(decodedText);
  document.getElementById('qr-reader-results').value=decodedResult;
+                                            document.getElementById('span1').text=decodedResult;
+                                            document.getElementById('span2').text=decodedText;
 }
 }
 
