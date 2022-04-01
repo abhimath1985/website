@@ -1,12 +1,41 @@
+Skip to content
+Search or jump to…
+Pull requests
+Issues
+Marketplace
+Explore
+ 
+@Aaditiya 
+Aaditiya
+/
+website
+Public
+Code
+Issues
+Pull requests
+Actions
+Projects
+Wiki
+Security
+Insights
+Settings
+website/jharkhand.html
+@Aaditiya
+Aaditiya Create jharkhand.html
+Latest commit a369a6e 12 minutes ago
+ History
+ 1 contributor
+46 lines (44 sloc)  1.3 KB
+   
  <html>
 <head>
 <title>Html-Qrcode Demo</title>
 <body>
-    <form action="http://116.206.154.163/rack_mgmt.php" method="post">
+    <form action="http://116.206.154.166/readqrcode.php" method="post">
         <div id="qr-reader" style="width:500px"></div>
         <input type="text" name="qrcode" id="qr-reader-results">
         <br>
-      <br><br>
+        <br><br>
         <input type="submit" name="save" style="padding:10px; width:100px; value="Add">
     </form>
 </body>
@@ -32,9 +61,8 @@ if (decodedText !== lastResult) {
 lastResult = decodedText;
 // Handle on success condition with the decoded message.
 alert(`Scan result ${decodedText}`, decodedResult);
-alert(decodedResult);                                           
  //$('#qr-reader-results').val(decodedText);
-  document.getElementById('qr-reader-results').value=decodedText;
+ document.getElementById('qr-reader-results').value=decodedResult;
 }
 }
 
@@ -45,3 +73,15 @@ html5QrcodeScanner.render(onScanSuccess);
 </script>
 </head>
 </html>
+© 2022 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Docs
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
