@@ -6,7 +6,9 @@
         <div id="qr-reader" style="width:500px"></div>
         <input type="text" name="qrcode" id="qr-reader-results">
         <br>
-        <br><br>
+        <input type="text" name="qrcode2" id="qr-reader-results2">
+        <br>
+       <br><br>
         <span id="span1"></span>
         <span id="span2"></span>
         <input type="submit" name="save" style="padding:10px; width:100px; value="Add">
@@ -37,6 +39,7 @@ alert(`Scan result ${decodedText}`, decodedResult);
                                             
  //$('#qr-reader-results').val(decodedText);
  document.getElementById('qr-reader-results').value=decodedResult;
+ document.getElementById('qr-reader-results2').value=decodedText;                                            
                                             document.getElementById('span1').text=decodedResult;
                                             document.getElementById('span2').text=decodedText;
 }
